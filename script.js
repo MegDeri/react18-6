@@ -1,30 +1,4 @@
 var Counter = React.createClass({
-    getInitialState: function() {
-        return {
-            counter: 0
-        };
-    },
-
-    increment: function() {
-        this.setState({
-            counter: this.state.counter + 1
-        });
-    },
-
-    decrement: function() {
-        this.setState({
-            counter: this.state.counter - 1
-        });
-    },
-
-    render: function() {
-        return (React.createElement('div', {},
-            React.createElement('button', {onClick: this.increment}, 'Plus'),
-            React.createElement('button', {onClick: this.decrement}, 'Minus'),
-            React.createElement('span', {}, 'Licznik ' + this.state.counter)
-        ));
-    },
-
     componentWillMount: function() {
         console.log('Inint state before first render');
         },
@@ -51,10 +25,35 @@ var Counter = React.createClass({
 
     componentWillUnmount: function() {
         console.log('Delete some options as timers or listener');
-    }  
+    }, 
+    
+    getInitialState: function() {
+        return {
+            counter: 0
+        };
+    },
+
+    increment: function() {
+        this.setState({
+            counter: this.state.counter + 1
+        });
+    },
+
+    decrement: function() {
+        this.setState({
+            counter: this.state.counter - 1
+        });
+    },
+    
+    render: function() {
+        return (React.createElement('div', {},
+            React.createElement('button', {onClick: this.increment}, 'Plus'),
+            React.createElement('button', {onClick: this.decrement}, 'Minus'),
+            React.createElement('span', {}, 'Licznik ' + this.state.counter)
+        ));
+    },
     
 });
-
 
 var element = React.createElement('div', {},
     React.createElement(Counter),
